@@ -1,7 +1,7 @@
 language: python
 
 python:
-  - "3.7.3"
+  - "3.6"
 
 env:
   - DJANGO=2.0 DB=postgres
@@ -32,5 +32,4 @@ script:
   - coverage run --branch --source=. ./manage.py test --keepdb --with-xunit
   - coverage xml
   - python-codacy-coverage -r coverage.xml
-  - cd decide
-  - python3.7 -m flake8 . 
+  - python3.6 -m flake8 .
