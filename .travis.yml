@@ -1,7 +1,7 @@
 language: python
 
 python:
-  - "3.6"
+  - "3.7.3"
 
 env:
   - DJANGO=2.0 DB=postgres
@@ -16,7 +16,7 @@ services:
   - postgresql
 
 addons:
-  postgresql: "9.4"
+  postgresql: "11"
 
 global:
   - PGPORT=5432
@@ -32,4 +32,4 @@ script:
   - coverage run --branch --source=. ./manage.py test --keepdb --with-xunit
   - coverage xml
   - python-codacy-coverage -r coverage.xml
-  - python3.6 -m flake8 . 
+  - python3.7.3 -m flake8 . 
