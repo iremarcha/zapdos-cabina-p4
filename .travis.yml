@@ -10,6 +10,8 @@ dist: xenial
 
 install:
   - pip install -r requirements.txt
+  - pip install codacy-coverage
+  - pip install flake8 
   
 services:
   - postgresql
@@ -28,4 +30,6 @@ before_script:
 script:  
   - cd decide 
   - cp travis_local_settings.py local_settings.py
-  - python manage.py test
+  - coverage run --branch --source=. ./manage.py test --keepdb --with-xunit
+  - coverage xml
+  - python-codacy-coverage -r coverage.xml
