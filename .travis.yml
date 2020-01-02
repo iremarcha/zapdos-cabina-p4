@@ -16,7 +16,7 @@ services:
   - postgresql
 
 addons:
-  postgresql: "11"
+  postgresql: "9.4"
 
 global:
   - PGPORT=5432
